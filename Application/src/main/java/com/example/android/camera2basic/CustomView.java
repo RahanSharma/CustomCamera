@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
+import android.hardware.camera2.params.Face;
 import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -16,7 +17,8 @@ public class CustomView extends SurfaceView {
     private final Paint paint;
     private final SurfaceHolder mHolder;
     private final Context context;
-
+    private Boolean faceDetected;
+    private Face currentFace;
     public CustomView(Camera2BasicFragment context) {
         super(context.getActivity().getBaseContext());
         mHolder = getHolder();
@@ -35,6 +37,15 @@ public class CustomView extends SurfaceView {
     protected void onDraw(Canvas canvas) {
 
         super.onDraw(canvas);
+        if(faceDetected==true)
+        {
+            Paint paint=new Paint();
+            paint.setStrokeWidth(2);
+            paint.setColor(Color.WHITE);
+
+            canvas.drawRect(currentFace.getBounds(),paint);
+        faceDetected=false;
+        }
     }
 
     @Override
@@ -72,5 +83,16 @@ public class CustomView extends SurfaceView {
 
 
         return false;
+    }
+public  void faceRect(Face face)
+{
+  faceDetected=true;
+  currentFace=face;
+
+
+}
+    public void drawFaceRect(Face[] faces) {
+      if(faces.length>0)
+        faceRect(faces[0]);
     }
 }
