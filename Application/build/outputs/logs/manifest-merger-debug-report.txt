@@ -1,0 +1,103 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:18:1-41:12
+MERGED from [com.android.support:support-v13:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\c89b25188a4958dd740f666e0bfad926\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\eb5fa786567e8c3eca2f727f9a3b7367\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.0.2.aar\d7211df389f1dd786b670d1b746cf1d5\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\a45c25ae3db422960cd41cc783dd7b56\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\1670f961336cb11bc27e1364a6631596\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\47131a4e316d0873423f75eb3fafac71\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\be798087928cdc141a76ed6a3939437f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\bdb96ea4545873d69c40f45170a18b4b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\82af9c2087f9771f02cfcfc29bc45f2a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\997aec198f1c7b71f1c892831f66b7ce\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\bbdc662087934596a9e000447c18b5ac\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\b703a561500beef8aa967be9038de503\AndroidManifest.xml:17:1-24:12
+	package
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:19:5-47
+	xmlns:android
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:18:11-69
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:21:5-65
+	android:name
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:21:22-62
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:22:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:23:22-77
+uses-feature#android.hardware.camera
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:24:5-60
+	android:name
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:24:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:25:5-70
+	android:name
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:25:19-67
+application
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:27:5-39:19
+	android:label
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:28:9-41
+	android:icon
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:29:9-45
+	android:allowBackup
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:27:18-44
+	android:theme
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:30:9-45
+activity#com.example.android.camera2basic.CameraActivity
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:32:9-38:20
+	android:label
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:33:19-51
+	android:name
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:32:19-49
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:34:13-37:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:35:17-69
+	android:name
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:35:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:36:17-77
+	android:name
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml:36:27-74
+uses-sdk
+INJECTED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml
+MERGED from [com.android.support:support-v13:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\c89b25188a4958dd740f666e0bfad926\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\c89b25188a4958dd740f666e0bfad926\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\eb5fa786567e8c3eca2f727f9a3b7367\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\eb5fa786567e8c3eca2f727f9a3b7367\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.0.2.aar\d7211df389f1dd786b670d1b746cf1d5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.0.2.aar\d7211df389f1dd786b670d1b746cf1d5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\a45c25ae3db422960cd41cc783dd7b56\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\a45c25ae3db422960cd41cc783dd7b56\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\1670f961336cb11bc27e1364a6631596\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\1670f961336cb11bc27e1364a6631596\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\47131a4e316d0873423f75eb3fafac71\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\47131a4e316d0873423f75eb3fafac71\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\be798087928cdc141a76ed6a3939437f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\be798087928cdc141a76ed6a3939437f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\bdb96ea4545873d69c40f45170a18b4b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\bdb96ea4545873d69c40f45170a18b4b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\82af9c2087f9771f02cfcfc29bc45f2a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\82af9c2087f9771f02cfcfc29bc45f2a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\997aec198f1c7b71f1c892831f66b7ce\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\997aec198f1c7b71f1c892831f66b7ce\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\bbdc662087934596a9e000447c18b5ac\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\bbdc662087934596a9e000447c18b5ac\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\b703a561500beef8aa967be9038de503\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Omega\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\b703a561500beef8aa967be9038de503\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Omega\Desktop\android-Camera2Basic\Application\src\main\AndroidManifest.xml

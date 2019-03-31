@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Point;
@@ -42,6 +43,7 @@ import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.NonNull;
@@ -57,16 +59,19 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -243,6 +248,9 @@ public class Camera2BasicFragment extends Fragment
 
         @Override
         public void onImageAvailable(ImageReader reader) {
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+            String path=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
+            mFile = new File(path, "IMG"+timeStamp+".jpg") ;
             mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
         }
 
@@ -421,7 +429,13 @@ public class Camera2BasicFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_camera2_basic, container, false);
+        View view = inflater.inflate(R.layout.fragment_camera2_basic, container, false);
+
+        LinearLayout surface = (LinearLayout)view.findViewById(R.id.surface);
+        surface.addView(new CustomView(this));
+       surface.setBackgroundColor(Color.TRANSPARENT);
+
+        return view;
     }
 
     @Override
@@ -434,7 +448,7 @@ public class Camera2BasicFragment extends Fragment
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mFile = new File(getActivity().getExternalFilesDir(null), "pic.jpg");
+
     }
 
     @Override
@@ -464,7 +478,7 @@ public class Camera2BasicFragment extends Fragment
         if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
             new ConfirmationDialog().show(getChildFragmentManager(), FRAGMENT_DIALOG);
         } else {
-            requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+            requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CAMERA_PERMISSION);
         }
     }
 
@@ -674,7 +688,9 @@ public class Camera2BasicFragment extends Fragment
      */
     private void createCameraPreviewSession() {
         try {
+            
             SurfaceTexture texture = mTextureView.getSurfaceTexture();
+
             assert texture != null;
 
             // We configure the size of default buffer to be the size of camera preview we want.
@@ -766,7 +782,7 @@ public class Camera2BasicFragment extends Fragment
      * Initiate a still image capture.
      */
     private void takePicture() {
-        lockFocus();
+        captureStillPicture();
     }
 
     /**
@@ -1015,7 +1031,7 @@ public class Camera2BasicFragment extends Fragment
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            parent.requestPermissions(new String[]{Manifest.permission.CAMERA},
+                            parent.requestPermissions(new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},
                                     REQUEST_CAMERA_PERMISSION);
                         }
                     })
