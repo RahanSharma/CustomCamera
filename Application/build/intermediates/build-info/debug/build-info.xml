@@ -6,23 +6,26 @@
     density="xxhdpi"
     format="10"
     plugin-version="3.0.1"
-    timestamp="1554036949294"
+    timestamp="1554046724682"
     token="1433720929470355861"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="797" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="61" />
     <task
         name="verifier"
-        duration="0" />
+        duration="7" />
 
+    <artifact
+        location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_3.apk"
+        type="SPLIT" />
     <artifact
         location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_6.apk"
         type="SPLIT" />
@@ -42,9 +45,6 @@
         location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_9.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
-    <artifact
         location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
     <artifact
@@ -62,8 +62,11 @@
 
     <build
         build-mode="FULL"
-        timestamp="1554036949294"
+        timestamp="1554046724682"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
         <artifact
             location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
@@ -81,9 +84,6 @@
             type="SPLIT" />
         <artifact
             location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Omega\Desktop\android-Camera2Basic\Application\build\intermediates\split-apk\debug\slices\slice_4.apk"

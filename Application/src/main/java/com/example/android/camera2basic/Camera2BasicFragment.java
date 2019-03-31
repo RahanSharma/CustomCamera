@@ -39,6 +39,7 @@ import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.CaptureResult;
 import android.hardware.camera2.TotalCaptureResult;
+import android.hardware.camera2.params.Face;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
@@ -164,7 +165,10 @@ public class Camera2BasicFragment extends Fragment
     /**
      * ID of the current {@link CameraDevice}.
      */
-    private String mCameraId;
+    public static final String CAMERA_FRONT = "1";
+    public static final String CAMERA_BACK = "0";
+
+    private String mCameraId=CAMERA_BACK;
 
     /**
      * An {@link AutoFitTextureView} for camera preview.
@@ -185,7 +189,7 @@ public class Camera2BasicFragment extends Fragment
      * The {@link android.util.Size} of camera preview.
      */
     private Size mPreviewSize;
-
+    private  CustomView overlayView;
     /**
      * {@link CameraDevice.StateCallback} is called when {@link CameraDevice} changes its state.
      */
@@ -298,6 +302,11 @@ public class Camera2BasicFragment extends Fragment
             switch (mState) {
                 case STATE_PREVIEW: {
                     // We have nothing to do when the camera preview is working normally.
+                    Face[] faces = result.get(CaptureResult.STATISTICS_FACES);
+                    if (faces != null && faces.length > 0) {
+                        Log.e("FaceDetect", "faces : " + faces.length);
+                        drawFaceBoundary(faces);
+                    }
                     break;
                 }
                 case STATE_WAITING_LOCK: {
@@ -355,7 +364,11 @@ public class Camera2BasicFragment extends Fragment
         }
 
     };
-
+  private void drawFaceBoundary(Face[] faces)
+  {
+      if(faces.length>0)
+     overlayView.drawFaceRect(faces);
+  }
     /**
      * Shows a {@link Toast} on the UI thread.
      *
@@ -430,18 +443,40 @@ public class Camera2BasicFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_camera2_basic, container, false);
-
+        overlayView=new CustomView(this);
         LinearLayout surface = (LinearLayout)view.findViewById(R.id.surface);
-        surface.addView(new CustomView(this));
+        surface.addView(overlayView);
        surface.setBackgroundColor(Color.TRANSPARENT);
 
         return view;
     }
+    public void switchCamera() {
+        if (mCameraId.equals(CAMERA_FRONT)) {
+            mCameraId = CAMERA_BACK;
+            closeCamera();
+            reopenCamera();
+           // switchCameraButton.setImageResource(R.drawable.ic_camera_front);
 
+        } else if (mCameraId.equals(CAMERA_BACK)) {
+            mCameraId = CAMERA_FRONT;
+            closeCamera();
+            reopenCamera();
+            //switchCameraButton.setImageResource(R.drawable.ic_camera_back);
+        }
+    }
+
+    public void reopenCamera() {
+        if (mTextureView.isAvailable()) {
+            openCamera(mTextureView.getWidth(), mTextureView.getHeight());
+        } else {
+            mTextureView.setSurfaceTextureListener(mSurfaceTextureListener);
+        }
+    }
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         view.findViewById(R.id.picture).setOnClickListener(this);
         view.findViewById(R.id.info).setOnClickListener(this);
+
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
     }
 
@@ -597,7 +632,7 @@ public class Camera2BasicFragment extends Fragment
                 Boolean available = characteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
                 mFlashSupported = available == null ? false : available;
 
-                mCameraId = cameraId;
+//                mCameraId = cameraId;
                 return;
             }
         } catch (CameraAccessException e) {
@@ -719,8 +754,10 @@ public class Camera2BasicFragment extends Fragment
                             mCaptureSession = cameraCaptureSession;
                             try {
                                 // Auto focus should be continuous for camera preview.
-                                mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE,
-                                        CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
+//                                mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE,
+//                                        CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
+                                mPreviewRequestBuilder.set(CaptureRequest.STATISTICS_FACE_DETECT_MODE,
+                                        CameraMetadata.STATISTICS_FACE_DETECT_MODE_FULL);
                                 // Flash is automatically enabled when necessary.
                                 setAutoFlash(mPreviewRequestBuilder);
 
@@ -840,6 +877,7 @@ public class Camera2BasicFragment extends Fragment
                     CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
             setAutoFlash(captureBuilder);
 
+
             // Orientation
             int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, getOrientation(rotation));
@@ -904,17 +942,19 @@ public class Camera2BasicFragment extends Fragment
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.picture: {
-                takePicture();
+               takePicture();
+
                 break;
             }
             case R.id.info: {
-                Activity activity = getActivity();
-                if (null != activity) {
-                    new AlertDialog.Builder(activity)
-                            .setMessage(R.string.intro_message)
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show();
-                }
+                switchCamera();
+//                Activity activity = getActivity();
+//                if (null != activity) {
+//                    new AlertDialog.Builder(activity)
+//                            .setMessage(R.string.intro_message)
+//                            .setPositiveButton(android.R.string.ok, null)
+//                            .show();
+//                }
                 break;
             }
         }
