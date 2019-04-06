@@ -19,7 +19,8 @@ public class CustomView extends SurfaceView {
     private final Context context;
     private Boolean faceDetected;
     private Face currentFace;
-    public CustomView(Camera2BasicFragment context) {
+    public CustomView(Camera2BasicFragment context)
+    {
         super(context.getActivity().getBaseContext());
         mHolder = getHolder();
         mHolder.setFormat(PixelFormat.TRANSPARENT);
@@ -37,15 +38,7 @@ public class CustomView extends SurfaceView {
     protected void onDraw(Canvas canvas) {
 
         super.onDraw(canvas);
-        if(faceDetected==true)
-        {
-            Paint paint=new Paint();
-            paint.setStrokeWidth(2);
-            paint.setColor(Color.WHITE);
 
-            canvas.drawRect(currentFace.getBounds(),paint);
-        faceDetected=false;
-        }
     }
 
     @Override
@@ -53,6 +46,15 @@ public class CustomView extends SurfaceView {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             invalidate();
             if (mHolder.getSurface().isValid()) {
+//                if(faceDetected==true)
+//                {
+//                    Paint paint=new Paint();
+//                    paint.setStrokeWidth(2);
+//                    paint.setColor(Color.WHITE);
+//
+//
+//                    faceDetected=false;
+//                }
                 final Canvas canvas = mHolder.lockCanvas();
                 Log.d("touch", "touchRecieved by camera");
                 if (canvas != null) {
@@ -61,6 +63,7 @@ public class CustomView extends SurfaceView {
                     canvas.drawColor(Color.TRANSPARENT);
                     canvas.drawCircle(event.getX(), event.getY(), 120, paint);
                     canvas.drawCircle(event.getX(), event.getY(), 20, paint);
+//                    canvas.drawRect(currentFace.getBounds(),paint);
                     mHolder.unlockCanvasAndPost(canvas);
                     new Handler().postDelayed(new Runnable() {
                         @Override

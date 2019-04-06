@@ -1,4 +1,4 @@
-#Sun Mar 31 21:08:48 IST 2019
+#Sat Apr 06 14:50:48 IST 2019
 base.0=C\:\\Users\\Omega\\Desktop\\android-Camera2Basic\\Application\\build\\intermediates\\transforms\\dexMerger\\debug\\4
 path.0=classes.dex
 renamed.0=classes.dex
